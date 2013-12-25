@@ -44,10 +44,25 @@ if(!empty($_POST)){
 <script src="js/knockout-3.0.0.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 
+<h3>
+fu - matching
+<a href="index.php">cast</a>
+and
+<a href="member.php">member</a>
+<a href="#" onclick="$('#help').show()">[?]</a>
+</h3>
+
+<div id="help" style="display:none">
+<ul>
+    <li>キャストを追加する場合は、このページの入力ボックスに名前を入力してボタンを押してください。</li>
+    <li>メンバーを追加する場合は、<a href="member.php">member</a>をクリックしてください。</li>
+</ul>
+</div>
+
 <form method="post" action="index.php">
     <input type="hidden" name="mode" value="add" />
     <input type="input" name="name" />
-    <input type="submit" /><?php echo $message;?>
+    <input type="submit" value="キャストを追加する" /><?php echo $message;?>
 </form>
 
 <table>
@@ -65,7 +80,7 @@ if(!empty($_POST)){
 </table>
 
 <hr>
-<div data-bind="text: result"></div>
+<textarea type="input" data-bind="value: result"></textarea>
 
 <script type="text/javascript">
 
@@ -117,7 +132,6 @@ if(!empty($_POST)){
     ko.applyBindings(viewModel);
 
 </script>
-
 
 <a href="index.php">index</a>
 <a href="member.php">member</a>
